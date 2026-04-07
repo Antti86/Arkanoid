@@ -83,6 +83,7 @@ private:
 	Graphics gfx;
 	Surface gameover = Surface("kuvat//game_over.bmp");
 	Surface MenuBackground = Surface("kuvat//sky_background_green_hills.bmp");
+	Surface BrickInfo = Surface("kuvat//bricks.bmp");
 	Screen StartMenu = { "Play \nOptions \nInfo \nQuit", MenuBackground, Vei2(100,100) };
 	Screen InfoMenu = {"Bricks \nMetters \nBack", MenuBackground, Vei2(100, 100)};
 	
@@ -96,6 +97,7 @@ private:
 	}
 	
 	void DrawOver();
+	void DrawBrickInfo();
 	void DrawLevel(const Level level);
 	void SetLevel(const Level level);
 	

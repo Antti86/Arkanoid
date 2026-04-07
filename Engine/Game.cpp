@@ -455,7 +455,7 @@ void Game::ComposeFrame()
 	}
 		else if (GameScreen == GameScreen::BrickInfo)
 		{
-			
+			DrawBrickInfo();
 		}
 		else if (GameScreen == GameScreen::MeterInfo)
 		{
@@ -693,6 +693,12 @@ void Game::DrawOver()
 {
 	SpriteEffect::NoChroma E;
 	gfx.DrawSprite(Vei2(250, 150), gameover, E);
+}
+
+void Game::DrawBrickInfo()
+{
+	SpriteEffect::NoChroma E;
+	gfx.DrawSprite(Vei2(0, 0), BrickInfo, E);
 }
 
 void Game::DrawLevel(const Level level)
