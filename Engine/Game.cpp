@@ -73,6 +73,13 @@ void Game::UpdateModel(float dt)
 		{
 			ball.SetResetBall(false);
 		}
+		if (wnd.kbd.KeyIsPressed(VK_ESCAPE))
+		{
+			GameScreen = GameScreen::StartMenu;
+			meter.ResetAllmeter();
+			life.SetLife('R');
+			SetLevel(Level::Lvl1);
+		}
 
 		if (wnd.kbd.KeyIsPressed(VK_CONTROL) && meter.GetB_meterY() <= meter.GetMeterMin() &&
 			meter.Blue != Area::Meter::MeterPos::None)
@@ -363,6 +370,13 @@ void Game::UpdateModel(float dt)
 			break;
 		}
 	}
+	else if (GameScreen == GameScreen::Options)			//options menu ruudun mekaniikka
+	{
+		if (wnd.kbd.KeyIsPressed(VK_ESCAPE))
+		{
+			GameScreen = GameScreen::StartMenu;
+		}
+	}
 	else if (GameScreen == GameScreen::Info)				 // info menu ruudun mekaniikka
 	{
 		Screen::InfoOptions o = InfoMenu.ProcessInfoMenu(wnd.kbd);
@@ -381,14 +395,14 @@ void Game::UpdateModel(float dt)
 	}
 		else if (GameScreen == GameScreen::BrickInfo )
 		{
-			if (wnd.kbd.KeyIsPressed(VK_SPACE))
+			if (wnd.kbd.KeyIsPressed(VK_ESCAPE))
 			{
 				GameScreen = GameScreen::Info;
 			}
 		}
 		else if (GameScreen == GameScreen::MeterInfo)
 		{
-			if (wnd.kbd.KeyIsPressed(VK_SPACE))
+			if (wnd.kbd.KeyIsPressed(VK_ESCAPE))
 			{
 				GameScreen = GameScreen::Info;
 			}
