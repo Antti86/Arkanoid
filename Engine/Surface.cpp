@@ -1,3 +1,9 @@
+/*
+ * Surface.cpp
+ * Copyright (C) 2026 Antti Parhiala
+ * Licensed under GPL-3.0-or-later. See License.txt.
+ */
+
 #include "Surface.h"
 #include <cassert>
 #include "ChiliWin.h"

@@ -1,6 +1,10 @@
+/*
+ * Font.cpp
+ * Copyright (C) 2026 Antti Parhiala
+ * Licensed under GPL-3.0-or-later. See License.txt.
+ */
+
 #include "Font.h"
-
-
 
 Font::Font(const std::string& filename)
 	:

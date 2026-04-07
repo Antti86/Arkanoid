@@ -1,3 +1,8 @@
+/*
+ * Area.cpp
+ * Copyright (C) 2026 Antti Parhiala
+ * Licensed under GPL-3.0-or-later. See License.txt.
+ */
 #include "Area.h"
 
 Area::Area(const RectF& rect_in, Color c_in)
