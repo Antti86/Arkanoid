@@ -85,6 +85,7 @@ private:
 	Surface MenuBackground = Surface("kuvat//sky_background_green_hills.bmp");
 	Surface BrickInfo = Surface("kuvat//bricks.bmp");
 	Surface MeterInfo = Surface("kuvat//metersInfo.bmp");
+	Surface ChoiceScreen1 = Surface("kuvat//ChoiceScreen1.bmp");
 	Screen StartMenu = { "Play \nOptions \nInfo \nQuit", MenuBackground, Vei2(100,100) };
 	Screen InfoMenu = {"Bricks \nMetters \nBack", MenuBackground, Vei2(100, 100)};
 
@@ -98,10 +99,8 @@ private:
 		BrickCollision(bricks, ball2, BrickTotal_lvl1);
 		BrickCollision(bricks, ball3, BrickTotal_lvl1);
 	}
-	
-	void DrawOver();
-	void DrawBrickInfo();
-	void DrawMeterInfo();
+
+	void DrawScreen(Surface& s);
 	void DrawLevel(const Level level);
 	void SetLevel(const Level level);
 	

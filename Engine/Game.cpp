@@ -348,6 +348,22 @@ void Game::UpdateModel(float dt)
 				SetLevel(Level::TestiV);
 				ball.SetResetBall(true);
 			}
+			if (wnd.kbd.KeyIsPressed('M'))
+			{
+				GameScreen = GameScreen::ChoiceScreen1;
+				ball.SetResetBall(true);
+				level = Level::Lvl4;
+				LvlUp = false;
+				SetLevel(Level::Lvl4);
+			}
+			if (wnd.kbd.KeyIsPressed('N'))
+			{
+				GameScreen = GameScreen::ChoiceScreen2;
+				SetLevel(Level::Lvl7);
+				ball.SetResetBall(true);
+				level = Level::Lvl7;
+				LvlUp = false;
+			}
 		}
 
 
@@ -468,19 +484,23 @@ void Game::ComposeFrame()
 	}
 		else if (GameScreen == GameScreen::BrickInfo)
 		{
-			DrawBrickInfo();
+			DrawScreen(BrickInfo);
 		}
 		else if (GameScreen == GameScreen::MeterInfo)
 		{
-			DrawMeterInfo();
+			DrawScreen(MeterInfo);
 		}
 	else if (GameScreen == GameScreen::GameOver)
 	{
-		DrawOver();
+		DrawScreen(gameover);
 	}
-	else if (GameScreen == GameScreen::ChoiceScreen1 || GameScreen == GameScreen::ChoiceScreen2)
+	else if (GameScreen == GameScreen::ChoiceScreen1)
 	{
-		
+		DrawScreen(ChoiceScreen1);
+	}
+	else if (GameScreen == GameScreen::ChoiceScreen2)
+	{
+
 	}
 	else if (GameScreen == GameScreen::Playing)
 	{
@@ -702,22 +722,10 @@ void Game::BrickCollision(std::vector<Brick>& bricks, Ball& ball, int BrickTotal
 }
 
 
-void Game::DrawOver()
+void Game::DrawScreen(Surface& s)
 {
 	SpriteEffect::NoChroma E;
-	gfx.DrawSprite(Vei2(250, 150), gameover, E);
-}
-
-void Game::DrawBrickInfo()
-{
-	SpriteEffect::NoChroma E;
-	gfx.DrawSprite(Vei2(0, 0), BrickInfo, E);
-}
-
-void Game::DrawMeterInfo()
-{
-	SpriteEffect::NoChroma E;
-	gfx.DrawSprite(Vei2(0, 0), MeterInfo, E);
+	gfx.DrawSprite(Vei2(0, 0), s, E);
 }
 
 void Game::DrawLevel(const Level level)
