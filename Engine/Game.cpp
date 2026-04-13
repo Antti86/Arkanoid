@@ -95,10 +95,6 @@ void Game::UpdateModel(float dt)
 			ball2.SetSpeed('r');
 			ball3.SetSpeed('r');
 		}
-		if (wnd.kbd.KeyIsPressed('Q'))		//Tämä testejä varten
-		{
-			meter.SetBlueM('+');
-		}
 
 		gun.WallCollision(walls);
 		gun.SetPos(pad);
@@ -111,13 +107,24 @@ void Game::UpdateModel(float dt)
 			meter.SetGreenM('-');
 		}
 
-		if (wnd.kbd.KeyIsPressed('C'))					//Testejä varten
+		if (testmode)
 		{
-			meter.Green = Area::Meter::MeterPos::Left;
-		}
-		if (wnd.kbd.KeyIsPressed('P'))
-		{
-			meter.Blue = Area::Meter::MeterPos::Right;
+			if (wnd.kbd.KeyIsPressed('C'))					
+			{
+				meter.Green = Area::Meter::MeterPos::Left;
+			}
+			if (wnd.kbd.KeyIsPressed('W'))		
+			{
+				meter.SetGreenM('+');
+			}
+			if (wnd.kbd.KeyIsPressed('P'))
+			{
+				meter.Blue = Area::Meter::MeterPos::Right;
+			}
+			if (wnd.kbd.KeyIsPressed('Q'))
+			{
+				meter.SetBlueM('+');
+			}
 		}
 
 		if (!Ball_1)
@@ -284,60 +291,66 @@ void Game::UpdateModel(float dt)
 			BrickCollision(bricks, ball, BrickTotal_lvlTestiV);
 		}
 
-		if (wnd.kbd.KeyIsPressed('1'))			//Level oikotie "testiä varten"
+		if (testmode)
 		{
-			SetLevel(Level::Lvl1);
-			level = Level::Lvl1;
-			ball.SetResetBall(true);
+
+			if (wnd.kbd.KeyIsPressed('1'))			
+			{
+				SetLevel(Level::Lvl1);
+				level = Level::Lvl1;
+				ball.SetResetBall(true);
+			}
+			if (wnd.kbd.KeyIsPressed('2'))
+			{
+				SetLevel(Level::Lvl2);
+				level = Level::Lvl2;
+				ball.SetResetBall(true);
+			}
+			if (wnd.kbd.KeyIsPressed('3'))
+			{
+				SetLevel(Level::Lvl3);
+				level = Level::Lvl3;
+				ball.SetResetBall(true);
+			}
+			if (wnd.kbd.KeyIsPressed('4'))
+			{
+				SetLevel(Level::Lvl4);
+				level = Level::Lvl4;
+				ball.SetResetBall(true);
+			}
+			if (wnd.kbd.KeyIsPressed('5'))
+			{
+				SetLevel(Level::Lvl5);
+				level = Level::Lvl5;
+				ball.SetResetBall(true);
+			}
+			if (wnd.kbd.KeyIsPressed('6'))
+			{
+				SetLevel(Level::Lvl6);
+				level = Level::Lvl6;
+				ball.SetResetBall(true);
+			}
+			if (wnd.kbd.KeyIsPressed('7'))
+			{
+				SetLevel(Level::Lvl7);
+				level = Level::Lvl7;
+				ball.SetResetBall(true);
+			}
+			if (wnd.kbd.KeyIsPressed('8'))
+			{
+				SetLevel(Level::Lvl8);
+				level = Level::Lvl8;
+				ball.SetResetBall(true);
+			}
+			if (wnd.kbd.KeyIsPressed('T'))
+			{
+				level = Level::TestiV;
+				SetLevel(Level::TestiV);
+				ball.SetResetBall(true);
+			}
 		}
-		if (wnd.kbd.KeyIsPressed('2'))			
-		{
-			SetLevel(Level::Lvl2);
-			level = Level::Lvl2;
-			ball.SetResetBall(true);
-		}
-		if (wnd.kbd.KeyIsPressed('3'))
-		{
-			SetLevel(Level::Lvl3);
-			level = Level::Lvl3;
-			ball.SetResetBall(true);
-		}
-		if (wnd.kbd.KeyIsPressed('4'))
-		{
-			SetLevel(Level::Lvl4);
-			level = Level::Lvl4;
-			ball.SetResetBall(true);
-		}
-		if (wnd.kbd.KeyIsPressed('5'))
-		{
-			SetLevel(Level::Lvl5);
-			level = Level::Lvl5;
-			ball.SetResetBall(true);
-		}
-		if (wnd.kbd.KeyIsPressed('6'))
-		{
-			SetLevel(Level::Lvl6);
-			level = Level::Lvl6;
-			ball.SetResetBall(true);
-		}
-		if (wnd.kbd.KeyIsPressed('7'))
-		{
-			SetLevel(Level::Lvl7);
-			level = Level::Lvl7;
-			ball.SetResetBall(true);
-		}
-		if (wnd.kbd.KeyIsPressed('8'))
-		{
-			SetLevel(Level::Lvl8);
-			level = Level::Lvl8;
-			ball.SetResetBall(true);
-		}
-		if (wnd.kbd.KeyIsPressed('T'))
-		{
-			level = Level::TestiV;
-			SetLevel(Level::TestiV);
-			ball.SetResetBall(true);
-		}
+
+
 
 	}
 	else if (GameScreen == GameScreen::GameOver)		//Game over ruudun mekaniikka
