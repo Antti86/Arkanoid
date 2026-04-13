@@ -90,7 +90,7 @@ private:
 	Screen StartMenu = { "Play \nOptions \nInfo \nQuit", MenuBackground, Vei2(100,100) };
 	Screen InfoMenu = {"Bricks \nMetters \nBack", MenuBackground, Vei2(100, 100)};
 
-	const bool testmode = true;   //testmode, joka mahdollistaa tasojen nopean testaamisen ilman tarvetta pelata läpi edellisiä tasoja
+	const bool testmode = false;   //testmode, joka mahdollistaa tasojen nopean testaamisen ilman tarvetta pelata läpi edellisiä tasoja
 	
 	void DrawBack();
 	void BrickCollision(std::vector<Brick>& bricks, Ball& ball, int BrickTotal_lvl1);
