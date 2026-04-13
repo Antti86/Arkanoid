@@ -79,6 +79,7 @@ void Game::UpdateModel(float dt)
 			meter.ResetAllmeter();
 			life.SetLife('R');
 			SetLevel(Level::Lvl1);
+			return;
 		}
 
 		if (wnd.kbd.KeyIsPressed(VK_CONTROL) && meter.GetB_meterY() <= meter.GetMeterMin() &&
