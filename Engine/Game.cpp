@@ -75,10 +75,7 @@ void Game::UpdateModel(float dt)
 		}
 		if (wnd.kbd.KeyIsPressed(VK_ESCAPE))
 		{
-			GameScreen = GameScreen::StartMenu;
-			meter.ResetAllmeter();
-			life.SetLife('R');
-			SetLevel(Level::Lvl1);
+			ResetGameSettings();
 			return;
 		}
 
@@ -374,9 +371,7 @@ void Game::UpdateModel(float dt)
 	{
 		if (wnd.kbd.KeyIsPressed(VK_SPACE))			
 		{
-			GameScreen = GameScreen::StartMenu;
-			life.SetLife('R');
-			meter.ResetAllmeter();
+			ResetGameSettings();
 		}
 	}
 	else if (GameScreen == GameScreen::StartMenu)		//alku menu ruudun mekaniikka
@@ -501,7 +496,7 @@ void Game::ComposeFrame()
 	}
 	else if (GameScreen == GameScreen::ChoiceScreen2)
 	{
-
+		DrawScreen(ChoiceScreen2);
 	}
 	else if (GameScreen == GameScreen::Playing)
 	{
@@ -1225,6 +1220,20 @@ void Game::SetLevel(const Level level)
 			}
 		}
 	}
+}
+
+void Game::ResetGameSettings()
+{
+	GameScreen = GameScreen::StartMenu;
+	meter.ResetAllmeter();
+	life.SetLife('R');
+	SetLevel(Level::Lvl1);
+	ball.ResetSpeed();
+	ball2.ResetSpeed();
+	ball3.ResetSpeed();
+	gun.SetGuns(false);
+	pad.SetPadChoiceSize(false);
+	pad.padsize = Paddle::PadSize::Normal;
 }
 
 

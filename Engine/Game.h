@@ -86,6 +86,7 @@ private:
 	Surface BrickInfo = Surface("kuvat//bricks.bmp");
 	Surface MeterInfo = Surface("kuvat//metersInfo.bmp");
 	Surface ChoiceScreen1 = Surface("kuvat//ChoiceScreen1.bmp");
+	Surface ChoiceScreen2 = Surface("kuvat//ChoiceScreen2.bmp");
 	Screen StartMenu = { "Play \nOptions \nInfo \nQuit", MenuBackground, Vei2(100,100) };
 	Screen InfoMenu = {"Bricks \nMetters \nBack", MenuBackground, Vei2(100, 100)};
 
@@ -103,6 +104,7 @@ private:
 	void DrawScreen(Surface& s);
 	void DrawLevel(const Level level);
 	void SetLevel(const Level level);
+	void ResetGameSettings();
 	
 	std::vector<Brick> bricks;
 	std::vector<Brick> bricks2;

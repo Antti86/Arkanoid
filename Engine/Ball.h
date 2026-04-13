@@ -26,6 +26,7 @@ public:
 	void SetDirection(const Vec2& dir);
 	void SetPos(class Paddle& pad);
 	void SetSpeed(char merkki);
+	void ResetSpeed();
 	void SetResetBall(bool status);
 	bool fail = false;
 private:

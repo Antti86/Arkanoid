@@ -133,6 +133,12 @@ void Ball::SetSpeed(char merkki)
 	}
 }
 
+void Ball::ResetSpeed()
+{
+	baseSpeed = 500.0f;
+	speed = baseSpeed;
+}
+
 void Ball::SetResetBall(bool status)
 {
 	if (status == true)
